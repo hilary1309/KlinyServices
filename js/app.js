@@ -546,11 +546,11 @@ function sendEmail(data) {
   });
 
   fetch(CONFIG.sheetsUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  }).catch(err => console.error("Sheet error:", err));
-}
+  method: "POST",
+  mode: "no-cors",
+  headers: { "Content-Type": "text/plain" },
+  body: JSON.stringify(data),
+}).catch(err => console.error("Sheet error:", err));
 
 // ── CONTACT FORM ──────────────────────────────────────────
 function submitContact() {

@@ -584,6 +584,7 @@ function submitContact() {
 
 // ── PDF DOWNLOAD ──────────────────────────────────────────
 function downloadQuotePDF(formData, total, hasCustom) {
+  if (!formData) { showToast("Complete your quote first.", "error"); return; }
   if (!window.jspdf) { showToast("PDF library not loaded.", "error"); return; }
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit: "mm", format: "a4" });

@@ -517,9 +517,9 @@ function submitQuote() {
   };
 
   sendEmail(formData);
-  downloadQuotePDF(formData, total, hasCustom);
   showToast("Quote confirmed! Check your email.", "success");
   goToStep(4);
+  setTimeout(() => downloadQuotePDF(formData, total, hasCustom), 300);
 }
 
 // ── EMAIL ─────────────────────────────────────────────────

@@ -525,7 +525,7 @@ function submitQuote() {
 // ── EMAIL ─────────────────────────────────────────────────
 function sendEmail(data) {
   if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
-
+  emailjs.init(CONFIG.emailjs.publicKey);
   emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.quoteTemplateId, {
     quoteId:   data.quoteId,
     date:      new Date().toLocaleDateString("en-CA"),

@@ -522,36 +522,6 @@ function submitQuote() {
   setTimeout(() => downloadQuotePDF(formData, total, hasCustom), 6000);
 }
 
-// ── EMAIL ─────────────────────────────────────────────────
-function sendEmail(data) {
-  if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
-  emailjs.init(CONFIG.emailjs.publicKey);
-  emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.quoteTemplateId, {
-    quoteId:   data.quoteId,
-    date:      new Date().toLocaleDateString("en-CA"),
-    name:      data.name,
-    email:     data.email,
-    phone:     data.phone,
-    address:   data.address,
-    unitType:  data.unitType,
-    cleanType: data.cleanType,
-    frequency: data.frequency,
-    addons:    data.addons,
-    total:     data.total,
-    notes:     data.notes || "None",
-    }).then(() => {
-    showToast("EMAIL SENT OK", "success");
-    }).catch(err => {
-    document.body.insertAdjacentHTML("afterbegin", "<div style='position:fixed;top:0;left:0;right:0;background:red;color:white;padding:20px;z-index:9999;font-size:14px;word-break:break-all'>EMAIL FAIL: " + JSON.stringify(err) + "</div>");
-  });
-
-  fetch(CONFIG.sheetsUrl, {
-  method: "POST",
-  mode: "no-cors",
-  headers: { "Content-Type": "text/plain" },
-  body: JSON.stringify(data),
-}).catch(err => console.error("Sheet error:", err));
-
 // ── CONTACT FORM ──────────────────────────────────────────
 function submitContact() {
   const name    = document.getElementById("contact-name")?.value?.trim();

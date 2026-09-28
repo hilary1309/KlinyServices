@@ -519,7 +519,7 @@ function submitQuote() {
   sendEmail(formData);
   showToast("Quote confirmed! Check your email.", "success");
   goToStep(4);
-  setTimeout(() => downloadQuotePDF(formData, total, hasCustom), 300);
+  setTimeout(() => downloadQuotePDF(formData, total, hasCustom), 6000);
 }
 
 // ── EMAIL ─────────────────────────────────────────────────

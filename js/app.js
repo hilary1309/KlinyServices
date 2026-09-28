@@ -429,7 +429,7 @@ function copyQuoteId() {
 // ── QUOTE SUBMISSION ──────────────────────────────────────
 function submitQuote() {
   if (!validateStep(3)) return;
-  
+
   state.quoteId = "SC-" + Date.now().toString(36).toUpperCase();
 
   const unitType    = document.getElementById("unit-type").value;
@@ -520,6 +520,37 @@ function submitQuote() {
   setTimeout(() => downloadQuotePDF(formData, total, hasCustom), 6000);
 }
 
+// ── SEND EMAIL + SHEET ────────────────────────────────────
+function sendEmail(data) {
+  if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
+  emailjs.init(CONFIG.emailjs.publicKey);
+  emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.quoteTemplateId, {
+    quoteId:   data.quoteId,
+    date:      new Date().toLocaleDateString("en-CA"),
+    name:      data.name,
+    email:     data.email,
+    phone:     data.phone,
+    address:   data.address,
+    unitType:  data.unitType,
+    cleanType: data.cleanType,
+    frequency: data.frequency,
+    addons:    data.addons,
+    total:     data.total,
+    notes:     data.notes || "None",
+  }).then(() => {
+    showToast("Quote confirmed! Check your email.", "success");
+  }).catch(err => {
+    console.error("EmailJS error:", err);
+  });
+
+  fetch(CONFIG.sheetsUrl, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify(data),
+  }).catch(err => console.error("Sheet error:", err));
+}
+
 // ── CONTACT FORM ──────────────────────────────────────────
 function submitContact() {
   const name    = document.getElementById("contact-name")?.value?.trim();
@@ -528,8 +559,6 @@ function submitContact() {
   const phone   = document.getElementById("contact-phone")?.value?.trim() || "Not provided";
   if (!name || !email || !message) { showToast("Please fill in all required fields.", "error"); return; }
   if (CONFIG.emailjs.publicKey !== "YOUR_PUBLIC_KEY") {
-    //emailjs.init(CONFIG.emailjs.publicKey);
-    // reply_to set to sender's email so you can reply directly from your inbox
     emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.contactTemplateId, {
       from_name: name,
       reply_to:  email,

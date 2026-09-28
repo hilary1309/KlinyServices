@@ -524,7 +524,7 @@ function submitQuote() {
 function sendEmail(data) {
   if (!window.emailjs) { console.warn("EmailJS not loaded."); return; }
   if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
-  emailjs.init(CONFIG.emailjs.publicKey);
+  // emailjs.init(CONFIG.emailjs.publicKey);
   emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.quoteTemplateId, data)
     .catch(err => console.error("EmailJS error:", err));
 
@@ -547,7 +547,7 @@ function submitContact() {
   const phone   = document.getElementById("contact-phone")?.value?.trim() || "Not provided";
   if (!name || !email || !message) { showToast("Please fill in all required fields.", "error"); return; }
   if (CONFIG.emailjs.publicKey !== "YOUR_PUBLIC_KEY") {
-    emailjs.init(CONFIG.emailjs.publicKey);
+    //emailjs.init(CONFIG.emailjs.publicKey);
     // reply_to set to sender's email so you can reply directly from your inbox
     emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.contactTemplateId, {
       from_name: name,
@@ -783,4 +783,5 @@ function showToast(msg, type = "info") {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("page-home")?.classList.add("active");
+  if (window.emailjs) emailjs.init(CONFIG.emailjs.publicKey);
 });

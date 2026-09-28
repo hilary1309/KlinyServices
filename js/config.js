@@ -7,7 +7,7 @@ const CONFIG = {
   business: {
     name: "Kliny Services",
     city: "Sudbury, Ontario",
-    phone: "807-XXX-XXXX",
+    phone: "807-709-9504",
     email: "klinyservice@gmail.com",
     whatsapp: "1807XXXXXXX",
   },

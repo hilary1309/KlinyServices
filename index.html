@@ -490,6 +490,7 @@
 <script src="js/app.js"></script>
 
 <script>
+  window.onerror = function(msg, src, line) { document.title = "ERR: " + msg + " L" + line; };
   // Year in footer
   document.getElementById("year").textContent = new Date().getFullYear();
 

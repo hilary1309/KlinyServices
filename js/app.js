@@ -428,7 +428,9 @@ function copyQuoteId() {
 
 // ── QUOTE SUBMISSION ──────────────────────────────────────
 function submitQuote() {
+  showToast("submitQuote called", "info");
   if (!validateStep(3)) return;
+  showToast("validation passed", "info");
 
   state.quoteId = "SC-" + Date.now().toString(36).toUpperCase();
 

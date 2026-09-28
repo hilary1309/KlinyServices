@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kliny Services - Professional Cleaning in Sudbury, Ontario</title>
+  <meta name="description" content="Professional home cleaning services in Sudbury, Ontario. Residential cleaning, deep cleans, move-in/out, Airbnb turnovers, and post-renovation cleaning. Get an instant quote." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+      Kliny<span>Services</span>
+    </div>
+    <div class="nav-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('home'); setTimeout(()=>document.getElementById('services').scrollIntoView({behavior:'smooth'}),100)">Services</button>
+      <button onclick="showPage('contact')">Contact</button>
+      <button class="btn-cta nav-cta btn" onclick="showPage('quote')">Get a Quote</button>
+    </div>
+  </div>
+</nav>
+
+<div id="toast" class="toast"></div>
+
+<!-- PAGE: HOME -->
+<div id="page-home" class="page">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>✦</span>
+        Serving Sudbury, Ontario
+      </div>
+      <h1>Your Space, <em>Spotless.</em></h1>
+      <p>Professional residential cleaning you can trust. Transparent pricing, flexible scheduling, no surprises.</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="showPage('quote')">Get Instant Quote</button>
+        <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">See Our Services</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Cleaning for Every Situation</h2>
+      <p class="section-sub">From weekly upkeep to a full post-renovation refresh, we have a service that fits your needs.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🧹</div>
+          <h3>Standard Clean</h3>
+          <p>Regular tidying, vacuuming, mopping, bathroom and kitchen surfaces. Perfect for weekly or bi-weekly upkeep.</p>
+          <span class="service-price">from $70</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Deep Clean</h3>
+          <p>A thorough top-to-bottom clean: baseboards, inside cabinets, behind appliances. Great for a seasonal reset.</p>
+          <span class="service-price">from $120</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Move-In / Move-Out</h3>
+          <p>Leave your old place spotless or arrive to a fresh start. We handle every corner so you can focus on the move.</p>
+          <span class="service-price">from $150</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Airbnb Turnover</h3>
+          <p>Fast, reliable turnovers between guests. Linen change, restock check, and full clean to keep your rating high.</p>
+          <span class="service-price">from $115</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔨</div>
+          <h3>Post-Renovation Clean</h3>
+          <p>Construction dust, debris, and residue removed from every surface. We get your newly renovated space move-in ready.</p>
+          <span class="service-price">from $160</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎉</div>
+          <h3>Party Clean-Up</h3>
+          <p>Had a gathering? We take care of the aftermath so you can relax without the cleanup stress.</p>
+          <span class="service-price">from $110</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="container">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Booked in Minutes</h2>
+      <p class="section-sub">No phone tag, no guesswork. Get your quote and pick a time in four simple steps.</p>
+      <div class="steps-grid">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <h3>Select Your Clean</h3>
+          <p>Choose your home type, number of bathrooms, and what kind of clean you need. Add-ons are optional.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <h3>See Your Price</h3>
+          <p>Your quote updates live as you make selections. No hidden fees, ever.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <h3>Enter Your Details</h3>
+          <p>Name, phone, email, and address so we can confirm your booking and reach you if needed.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <h3>Pick a Date and Time</h3>
+          <p>Choose a weekday evening or a weekend slot that works for you. You and we both get a confirmation email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <div class="container">
+      <span class="section-label">Transparent Pricing</span>
+      <h2 class="section-title">What You Pay is What We Quote</h2>
+      <p class="section-sub">Base prices cover a standard clean. Additional services and add-ons are itemized clearly in your quote.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="price-label">Bachelor / Studio</div>
+          <div class="price-amount"><sup>$</sup>70</div>
+          <div class="price-note">Base rate</div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">1 Bedroom</div>
+          <div class="price-amount"><sup>$</sup>90</div>
+          <div class="price-note">Base rate</div>
+        </div>
+        <div class="price-card featured">
+          <div class="price-label">2 Bedrooms</div>
+          <div class="price-amount"><sup>$</sup>110</div>
+          <div class="price-note">Base rate</div>
+        </div>
+        <div class="price-card">
+          <div class="price-label">3 Bedrooms</div>
+          <div class="price-amount"><sup>$</sup>130</div>
+          <div class="price-note">Base rate</div>
+        </div>
+      </div>
+      <div class="addons-note">
+        <h4>Extra Bathroom: +$35 &nbsp;|&nbsp; Deep Clean: +$50 &nbsp;|&nbsp; Move-In/Out: +$80 &nbsp;|&nbsp; Airbnb Turnover: +$45 &nbsp;|&nbsp; Post-Renovation: +$90</h4>
+        <div class="addons-list" style="margin-top:12px;">
+          <span class="addon-tag">🔥 Oven +$20</span>
+          <span class="addon-tag">❄️ Fridge +$20</span>
+          <span class="addon-tag">🪟 Interior Windows +$30</span>
+          <span class="addon-tag">🖌️ Wall Spot Clean +$25</span>
+          <span class="addon-tag">🧺 Laundry +$30</span>
+          <span class="addon-tag">🏚️ Garage / Basement +$40</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready for a Cleaner Home?</h2>
+      <p>Get your personalized quote in under two minutes. No obligation.</p>
+      <button class="btn btn-white" onclick="showPage('quote')">Get My Free Quote</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Kliny<span>Services</span></div>
+    <p>Professional Cleaning Services in Sudbury, Ontario</p>
+    <div class="footer-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('quote')">Get a Quote</button>
+      <button onclick="showPage('contact')">Contact</button>
+    </div>
+    <p style="margin-top:16px;">&copy; <span id="year"></span> Kliny Services. All rights reserved.</p>
+  </footer>
+
+</div><!-- /page-home -->
+
+
+<!-- PAGE: QUOTE -->
+<div id="page-quote" class="page">
+
+  <div class="quote-header">
+    <h1>Get Your Quote</h1>
+    <p>Prices update live as you choose your options.</p>
+  </div>
+
+  <div class="quote-layout">
+
+    <!-- Left: Multi-Step Form -->
+    <div>
+
+      <div class="step-indicators">
+        <div class="step-indicator-item"><div class="step-dot active" id="sdot-1">1</div></div>
+        <div class="step-line" id="sline-1"></div>
+        <div class="step-indicator-item"><div class="step-dot" id="sdot-2">2</div></div>
+        <div class="step-line" id="sline-2"></div>
+        <div class="step-indicator-item"><div class="step-dot" id="sdot-3">3</div></div>
+        <div class="step-line" id="sline-3"></div>
+        <div class="step-indicator-item"><div class="step-dot" id="sdot-4">4</div></div>
+      </div>
+
+      <div class="quote-card">
+
+        <!-- Step 1: Property Details -->
+        <div class="form-step active" id="step-1">
+          <div class="step-header">
+            <h2>Property Details</h2>
+            <p>Tell us about your home so we can calculate the right price.</p>
+          </div>
+          <div class="step-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="unit-type">Unit Type <span class="req">*</span></label>
+                <select id="unit-type" onchange="updateQuote()">
+                  <option value="">Select unit type</option>
+                  <option value="bachelor">Bachelor / Studio</option>
+                  <option value="1bed">1 Bedroom</option>
+                  <option value="2bed">2 Bedrooms</option>
+                  <option value="3bed">3 Bedrooms</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bathrooms">Bathrooms <span class="req">*</span></label>
+                <select id="bathrooms" onchange="updateQuote()">
+                  <option value="">Select number</option>
+                  <option value="1">1 Bathroom</option>
+                  <option value="2">2 Bathrooms (+$35)</option>
+                  <option value="3">3 Bathrooms (+$70)</option>
+                  <option value="4">4 Bathrooms (+$105)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="floors">Floors / Levels <span class="req">*</span></label>
+                <select id="floors">
+                  <option value="">Select floors</option>
+                  <option value="1">1 Floor</option>
+                  <option value="2">2 Floors</option>
+                  <option value="3">3 Floors</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="clean-type">Type of Clean <span class="req">*</span></label>
+                <select id="clean-type" onchange="updateQuote()">
+                  <option value="">Select clean type</option>
+                  <option value="standard">Standard Clean</option>
+                  <option value="deep">Deep Clean (+$50)</option>
+                  <option value="moveinout">Move-In / Move-Out (+$80)</option>
+                  <option value="party">Party Clean-Up (+$40)</option>
+                  <option value="airbnb">Airbnb Turnover (+$45)</option>
+                  <option value="postreno">Post-Renovation Clean (+$90)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="frequency">How Often Do You Need Cleaning? <span class="req">*</span></label>
+              <select id="frequency" onchange="updateQuote()">
+                <option value="">Select frequency</option>
+                <option value="onetime">One-time</option>
+                <option value="weekly">Weekly (7% discount applied)</option>
+                <option value="biweekly">Bi-weekly (5% discount applied)</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+
+            <!-- Service Includes Checklist (populated by JS) -->
+            <div id="service-includes-area"></div>
+          </div>
+          <div class="step-actions">
+            <button class="btn-next" onclick="goToStep(2)">Next: Choose Add-Ons &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Add-Ons -->
+        <div class="form-step" id="step-2">
+          <div class="step-header">
+            <h2>Optional Add-Ons</h2>
+            <p>Everything is optional. Each selection shows exactly what is covered and the price.</p>
+          </div>
+          <div class="step-body">
+            <div class="section-divider">Simple Add-Ons</div>
+            <div class="simple-addon-grid" id="simple-addon-grid"></div>
+
+            <div class="section-divider" style="margin-top:20px">Variable Services &mdash; choose size or quantity</div>
+            <div id="tiered-addon-blocks"></div>
+
+            <div id="addon-reveals"></div>
+            <p style="margin-top:12px;font-size:.82rem;color:var(--gray-400)">Items marked &ldquo;Custom quote&rdquo; require a quick message before finalizing. We will confirm before starting.</p>
+          </div>
+          <div class="step-actions">
+            <button class="btn-back" onclick="goToStep(1)">&larr; Back</button>
+            <button class="btn-next" onclick="goToStep(3)">Next: Your Details &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Contact Info + Photos -->
+        <div class="form-step" id="step-3">
+          <div class="step-header">
+            <h2>Your Details</h2>
+            <p>We use this to confirm your booking and send your quote.</p>
+          </div>
+          <div class="step-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="client-name" placeholder="Jane Smith" />
+              </div>
+              <div class="form-group">
+                <label for="client-phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="client-phone" placeholder="705-XXX-XXXX" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="client-email">Email Address <span class="req">*</span></label>
+              <input type="email" id="client-email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="client-address">Service Address <span class="req">*</span></label>
+              <input type="text" id="client-address" placeholder="123 Main St, Sudbury, ON" />
+            </div>
+            <div class="form-group">
+              <label for="client-notes">Special Notes (optional)</label>
+              <textarea id="client-notes" placeholder="Anything we should know: pets, access codes, specific areas to focus on..."></textarea>
+            </div>
+
+            <!-- Photo Link -->
+            <div class="photo-link-box">
+              <span class="photo-link-icon">📷</span>
+              <div>
+                <strong>Want to share photos of your space?</strong>
+                <p>Photos help us prepare and flag any areas that may affect pricing. Takes under a minute.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSch3Ete-8jRe0k-rsDcmayt25_xJjFCWbce4R9m2sYu4HdxdA/viewform?usp=publish-editor" target="_blank" class="photo-link-btn">Upload Photos &rarr;</a>
+              </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-box">
+              <strong>Important Notice</strong>
+              Prices are based on standard cleaning conditions and the services selected above. Additional charges may apply for cleaning requirements outside the selected services or significantly heavier-than-standard conditions (e.g. excessive pet hair, heavy grease, or significant dirt buildup). We will always inform you and get your approval before starting any additional work.
+            </div>
+          </div>
+          <div class="step-actions">
+            <button class="btn-back" onclick="goToStep(2)">&larr; Back</button>
+            <button class="btn-next" onclick="submitQuote()">Confirm Quote &amp; Book &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Book -->
+        <div class="form-step" id="step-4">
+          <div class="step-header">
+            <h2>Book Your Cleaning</h2>
+            <p>Your quote is ready. Follow the steps below whenever you're ready to lock in a date.</p>
+          </div>
+          <div class="step-body">
+            <div id="booking-content"></div>
+          </div>
+          <div class="step-actions">
+            <button class="btn-back" onclick="goToStep(3)">&larr; Back</button>
+            <button class="btn-next" onclick="showPage('home')">Back to Home</button>
+          </div>
+        </div>
+
+      </div><!-- /quote-card -->
+    </div>
+
+    <!-- Right: Summary Panel -->
+    <div>
+      <div class="summary-panel">
+        <div class="summary-header">
+          <h3>Your Quote Summary</h3>
+        </div>
+        <div class="summary-body">
+          <div id="summary-lines">
+            <p class="summary-placeholder">Select your options to see the quote.</p>
+          </div>
+          <div id="summary-checklist-area"></div>
+        </div>
+        <div class="summary-total-row">
+          <span class="summary-total-label">Estimated Total</span>
+          <span id="summary-total">$0</span>
+        </div>
+        <div class="summary-disclaimer">
+          Prices are based on standard conditions. Additional charges may apply for excessive soiling or conditions outside the selected services. You will always be notified before any extra work begins.
+        </div>
+        <div class="summary-actions">
+          <button class="btn btn-pdf" onclick="downloadQuotePDF()">&#8595; Download PDF Quote</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /quote-layout -->
+</div><!-- /page-quote -->
+
+
+<!-- PAGE: CONTACT -->
+<div id="page-contact" class="page">
+
+  <div class="contact-header">
+    <h1>Get in Touch</h1>
+    <p>Have questions? We are happy to help.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h2>We Would Love to Hear From You</h2>
+      <p>Whether you have a question about pricing, scheduling, or anything else, reach out and we will get back to you as soon as possible.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Service Area</strong>
+          <span>Sudbury, Ontario</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📧</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>klinyservice@gmail.com</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div class="contact-detail-text">
+          <strong>Phone / WhatsApp</strong>
+          <span>807-709-9504</span>
+        </div>
+      </div>
+
+      <div style="margin-top:28px;">
+        <p style="font-size:0.85rem;font-weight:600;color:var(--gray-600);margin-bottom:12px;letter-spacing:0.05em;text-transform:uppercase;">Our Availability</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;padding:8px 0;border-bottom:1px solid var(--gray-100);">
+            <span>Mon - Fri</span>
+            <span class="avail-badge">4:00 PM - 8:00 PM</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;padding:8px 0;border-bottom:1px solid var(--gray-100);">
+            <span>Saturday</span>
+            <span class="avail-badge">9:00 AM - 5:00 PM</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;padding:8px 0;">
+            <span>Sunday</span>
+            <span class="avail-badge">9:00 AM - 3:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+      <h3>Send a Message</h3>
+      <div class="form-group">
+        <label for="contact-name">Your Name <span class="req">*</span></label>
+        <input type="text" id="contact-name" placeholder="Jane Smith" />
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email Address <span class="req">*</span></label>
+        <input type="email" id="contact-email" placeholder="you@example.com" />
+      </div>
+      <div class="form-group">
+        <label for="contact-phone">Phone Number (optional)</label>
+        <input type="tel" id="contact-phone" placeholder="705-XXX-XXXX" />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message <span class="req">*</span></label>
+        <textarea id="contact-message" style="min-height:120px;" placeholder="How can we help you?"></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitContact()">Send Message</button>
+      <p style="font-size:.78rem;color:var(--text-muted);margin-top:10px;text-align:center;">We reply directly to your email — usually within a few hours.</p>
+    </div>
+  </div>
+
+</div><!-- /page-contact -->
+
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+  // Year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Step indicator sync
+  const _origGoToStep = goToStep;
+  goToStep = function(step) {
+    _origGoToStep(step);
+    document.querySelectorAll('[id^="sdot-"]').forEach((dot, i) => {
+      dot.classList.toggle("active",    i + 1 === step);
+      dot.classList.toggle("completed", i + 1 < step);
+    });
+    document.querySelectorAll('[id^="sline-"]').forEach((line, i) => {
+      line.classList.toggle("completed", i + 1 < step);
+    });
+  };
+
+  // Drag-and-drop on photo zone
+  const dropZone = document.getElementById("photo-drop-zone");
+  if (dropZone) {
+    dropZone.addEventListener("dragover", e => { e.preventDefault(); dropZone.classList.add("dragover"); });
+    dropZone.addEventListener("dragleave", () => dropZone.classList.remove("dragover"));
+    dropZone.addEventListener("drop", e => {
+      e.preventDefault();
+      dropZone.classList.remove("dragover");
+      const dt = e.dataTransfer;
+      if (dt && dt.files.length) addPhotos(dt.files);
+    });
+  }
+</script>
+
+</body>
+</html>

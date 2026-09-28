@@ -524,7 +524,7 @@ function submitQuote() {
 function sendEmail(data) {
   if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
   
-  fetch("/.netlify/functions/send-quote", {
+  fetch("/.netlify/functions/send_quote", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),

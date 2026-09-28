@@ -523,15 +523,31 @@ function submitQuote() {
 // ── EMAIL ─────────────────────────────────────────────────
 function sendEmail(data) {
   if (CONFIG.emailjs.publicKey === "YOUR_PUBLIC_KEY") { console.info("EmailJS not configured."); return; }
-  
-  fetch("/.netlify/functions/send_quote", {
+
+  emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.quoteTemplateId, {
+    quoteId:   data.quoteId,
+    date:      new Date().toLocaleDateString("en-CA"),
+    name:      data.name,
+    email:     data.email,
+    phone:     data.phone,
+    address:   data.address,
+    unitType:  data.unitType,
+    cleanType: data.cleanType,
+    frequency: data.frequency,
+    addons:    data.addons,
+    total:     data.total,
+    notes:     data.notes || "None",
+  }).then(() => {
+    console.log("Quote email sent.");
+  }).catch(err => {
+    console.error("EmailJS error:", err);
+  });
+
+  fetch(CONFIG.sheetsUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
-  })
-  .then(res => res.json())
-  .then(result => console.log("Quote sent:", result))
-  .catch(err => console.error("Send error:", err));
+  }).catch(err => console.error("Sheet error:", err));
 }
 
 // ── CONTACT FORM ──────────────────────────────────────────

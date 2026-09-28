@@ -539,10 +539,10 @@ function sendEmail(data) {
     addons:    data.addons,
     total:     data.total,
     notes:     data.notes || "None",
-  }).then(() => {
-    console.log("Quote email sent.");
+    }).then(() => {
+    showToast("EMAIL SENT OK", "success");
   }).catch(err => {
-    console.error("EmailJS error:", err);
+    showToast("EMAIL FAIL: " + JSON.stringify(err), "error");
   });
 
   fetch(CONFIG.sheetsUrl, {

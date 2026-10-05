@@ -57,37 +57,37 @@
           <div class="service-icon">🧹</div>
           <h3>Standard Clean</h3>
           <p>Regular tidying, vacuuming, mopping, bathroom and kitchen surfaces. Perfect for weekly or bi-weekly upkeep.</p>
-          <span class="service-price">from $70</span>
+         <!-- <span class="service-price">from $70</span> -->
         </div>
         <div class="service-card">
           <div class="service-icon">✨</div>
           <h3>Deep Clean</h3>
           <p>A thorough top-to-bottom clean: baseboards, inside cabinets, behind appliances. Great for a seasonal reset.</p>
-          <span class="service-price">from $120</span>
+         <!-- <span class="service-price">from $120</span> -->
         </div>
         <div class="service-card">
           <div class="service-icon">📦</div>
           <h3>Move-In / Move-Out</h3>
           <p>Leave your old place spotless or arrive to a fresh start. We handle every corner so you can focus on the move.</p>
-          <span class="service-price">from $150</span>
+         <!-- <span class="service-price">from $150</span> -->
         </div>
         <div class="service-card">
           <div class="service-icon">🏠</div>
           <h3>Airbnb Turnover</h3>
           <p>Fast, reliable turnovers between guests. Linen change, restock check, and full clean to keep your rating high.</p>
-          <span class="service-price">from $115</span>
+         <!-- <span class="service-price">from $115</span> -->
         </div>
         <div class="service-card">
           <div class="service-icon">🔨</div>
           <h3>Post-Renovation Clean</h3>
           <p>Construction dust, debris, and residue removed from every surface. We get your newly renovated space move-in ready.</p>
-          <span class="service-price">from $160</span>
+         <!-- <span class="service-price">from $160</span> -->
         </div>
         <div class="service-card">
           <div class="service-icon">🎉</div>
           <h3>Party Clean-Up</h3>
           <p>Had a gathering? We take care of the aftermath so you can relax without the cleanup stress.</p>
-          <span class="service-price">from $110</span>
+         <!-- <span class="service-price">from $110</span> -->
         </div>
       </div>
     </div>
@@ -131,34 +131,34 @@
       <div class="pricing-grid">
         <div class="price-card">
           <div class="price-label">Bachelor / Studio</div>
-          <div class="price-amount"><sup>$</sup>70</div>
+          <div class="price-amount"><sup>$</sup>155</div>
           <div class="price-note">Base rate</div>
         </div>
         <div class="price-card">
           <div class="price-label">1 Bedroom</div>
-          <div class="price-amount"><sup>$</sup>90</div>
+          <div class="price-amount"><sup>$</sup>170</div>
           <div class="price-note">Base rate</div>
         </div>
         <div class="price-card featured">
           <div class="price-label">2 Bedrooms</div>
-          <div class="price-amount"><sup>$</sup>110</div>
+          <div class="price-amount"><sup>$</sup>260</div>
           <div class="price-note">Base rate</div>
         </div>
         <div class="price-card">
           <div class="price-label">3 Bedrooms</div>
-          <div class="price-amount"><sup>$</sup>130</div>
+          <div class="price-amount"><sup>$</sup>350</div>
           <div class="price-note">Base rate</div>
         </div>
       </div>
       <div class="addons-note">
-        <h4>Extra Bathroom: +$35 &nbsp;|&nbsp; Deep Clean: +$50 &nbsp;|&nbsp; Move-In/Out: +$80 &nbsp;|&nbsp; Airbnb Turnover: +$45 &nbsp;|&nbsp; Post-Renovation: +$90</h4>
+        <h4>Extra Bathroom: +$35 &nbsp;|&nbsp; Deep Clean: +$115 &nbsp;|&nbsp; Move-In/Out: +$150 &nbsp;|&nbsp; Airbnb Turnover: +$120 &nbsp;|&nbsp; Post-Renovation: +$220</h4>
         <div class="addons-list" style="margin-top:12px;">
-          <span class="addon-tag">🔥 Oven +$20</span>
-          <span class="addon-tag">❄️ Fridge +$20</span>
+          <span class="addon-tag">🔥 Oven +$35</span>
+          <span class="addon-tag">❄️ Fridge +$30</span>
           <span class="addon-tag">🪟 Interior Windows +$30</span>
           <span class="addon-tag">🖌️ Wall Spot Clean +$25</span>
           <span class="addon-tag">🧺 Laundry +$30</span>
-          <span class="addon-tag">🏚️ Garage / Basement +$40</span>
+          <span class="addon-tag">🏚️ Garage / Basement +$90</span>
         </div>
       </div>
     </div>
@@ -238,6 +238,14 @@
                   <option value="3">3 Bathrooms (+$70)</option>
                   <option value="4">4 Bathrooms (+$105)</option>
                 </select>
+                    <div class="half-bath-row">
+                  <span class="half-bath-label">+ Half bath?</span>
+                  <select id="half-baths" class="half-bath-select" onchange="updateQuote()">
+                    <option value="0">None</option>
+                    <option value="1">+1 half (+$15)</option>
+                    <option value="2">+2 halves (+$30)</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="form-row">
@@ -255,11 +263,11 @@
                 <select id="clean-type" onchange="updateQuote()">
                   <option value="">Select clean type</option>
                   <option value="standard">Standard Clean</option>
-                  <option value="deep">Deep Clean (+$50)</option>
-                  <option value="moveinout">Move-In / Move-Out (+$80)</option>
-                  <option value="party">Party Clean-Up (+$40)</option>
-                  <option value="airbnb">Airbnb Turnover (+$45)</option>
-                  <option value="postreno">Post-Renovation Clean (+$90)</option>
+                  <option value="deep">Deep Clean (+$115)</option>
+                  <option value="moveinout">Move-In / Move-Out (+$150)</option>
+                  <option value="party">Party Clean-Up (+$130)</option>
+                  <option value="airbnb">Airbnb Turnover (+$120)</option>
+                  <option value="postreno">Post-Renovation Clean (+$220)</option>
                 </select>
               </div>
             </div>

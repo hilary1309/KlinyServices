@@ -50,6 +50,7 @@ function showPage(pageId) {
 function updateQuote() {
   const unitType    = document.getElementById("unit-type")?.value  || "";
   const bathrooms   = parseInt(document.getElementById("bathrooms")?.value) || 1;
+  const halfBaths   = parseInt(document.getElementById("half-baths")?.value) || 0;
   const cleanType   = document.getElementById("clean-type")?.value || "";
   const frequencyId = document.getElementById("frequency")?.value  || "onetime";
 
@@ -57,13 +58,15 @@ function updateQuote() {
 
   if (!unitType) { renderSummary([], 0, cleanType); return; }
 
-  const base      = CONFIG.pricing.base[unitType] || 0;
-  const extraBath = Math.max(0, bathrooms - 1) * CONFIG.pricing.extraBathroom;
-  const typeUp    = CONFIG.pricing.cleanTypeUpgrade[cleanType] || 0;
+  const base          = CONFIG.pricing.base[unitType] || 0;
+  const extraBath     = Math.max(0, bathrooms - 1) * CONFIG.pricing.extraBathroom;
+  const extraHalfBath = halfBaths * CONFIG.pricing.extraHalfBath;
+  const typeUp        = CONFIG.pricing.cleanTypeUpgrade[cleanType] || 0;
 
   const lines = [{ label: UNIT_LABELS[unitType] || unitType, amount: base }];
-  if (bathrooms > 1) lines.push({ label: `Extra Bathrooms (x${bathrooms - 1})`, amount: extraBath });
-  if (typeUp > 0)    lines.push({ label: CLEAN_LABELS[cleanType] || cleanType,   amount: typeUp });
+  if (bathrooms > 1)  lines.push({ label: `Extra Bathrooms (x${bathrooms - 1})`, amount: extraBath });
+  if (halfBaths > 0)  lines.push({ label: `Half Bathrooms (x${halfBaths})`,       amount: extraHalfBath });
+  if (typeUp > 0)     lines.push({ label: CLEAN_LABELS[cleanType] || cleanType,   amount: typeUp });
 
   let addonTotal = 0;
   let hasCustom  = false;
@@ -94,7 +97,7 @@ function updateQuote() {
     }
   });
 
-  const subtotal    = base + extraBath + typeUp + addonTotal;
+  const subtotal    = base + extraBath + extraHalfBath + typeUp + addonTotal;
   const freqOption  = CONFIG.frequency.find(f => f.id === frequencyId) || CONFIG.frequency[0];
   const discountAmt = Math.round(subtotal * freqOption.discountPct / 100);
   if (discountAmt > 0) {
@@ -435,16 +438,18 @@ function submitQuote() {
   const unitType    = document.getElementById("unit-type").value;
   const cleanType   = document.getElementById("clean-type").value;
   const bathrooms   = document.getElementById("bathrooms").value;
+  const halfBaths   = parseInt(document.getElementById("half-baths")?.value) || 0;
   const floors      = document.getElementById("floors").value;
   const frequencyId = document.getElementById("frequency")?.value || "onetime";
   const notes       = document.getElementById("client-notes")?.value || "";
   const freqOption  = CONFIG.frequency.find(f => f.id === frequencyId) || CONFIG.frequency[0];
 
-  const base        = CONFIG.pricing.base[unitType] || 0;
-  const extraBath   = Math.max(0, parseInt(bathrooms) - 1) * CONFIG.pricing.extraBathroom;
-  const typeUp      = CONFIG.pricing.cleanTypeUpgrade[cleanType] || 0;
-  let   addonTotal  = 0;
-  let   hasCustom   = false;
+  const base          = CONFIG.pricing.base[unitType] || 0;
+  const extraBath     = Math.max(0, parseInt(bathrooms) - 1) * CONFIG.pricing.extraBathroom;
+  const extraHalfBath = halfBaths * CONFIG.pricing.extraHalfBath;
+  const typeUp        = CONFIG.pricing.cleanTypeUpgrade[cleanType] || 0;
+  let   addonTotal    = 0;
+  let   hasCustom     = false;
 
   const addonLines = [];
   Object.entries(state.qtyAddons).forEach(([id, count]) => {
@@ -465,7 +470,7 @@ function submitQuote() {
     else                     { addonLines.push(`${group.label} — ${tier.label} (+$${tier.price})`); addonTotal += tier.price; }
   });
 
-  const subtotal    = base + extraBath + typeUp + addonTotal;
+  const subtotal    = base + extraBath + extraHalfBath + typeUp + addonTotal;
   const discountAmt = Math.round(subtotal * freqOption.discountPct / 100);
   const total       = subtotal - discountAmt;
 
@@ -488,6 +493,10 @@ function submitQuote() {
     return parts.join("; ") || "None";
   })();
 
+  const bathSummary = halfBaths > 0
+    ? `${bathrooms} full + ${halfBaths} half`
+    : bathrooms;
+
   const formData = {
     quoteId:          state.quoteId,
     name:             document.getElementById("client-name").value,
@@ -496,7 +505,8 @@ function submitQuote() {
     address:          document.getElementById("client-address").value,
     unitType:         UNIT_LABELS[unitType]   || unitType,
     cleanType:        CLEAN_LABELS[cleanType] || cleanType,
-    bathrooms, floors,
+    bathrooms:        bathSummary,
+    floors,
     frequency:        freqOption.label,
     addons:           addonLines.join(", ") || "None",
     serviceIncludes:  includesList,

@@ -436,6 +436,36 @@ footer {
 .form-group input.error    { border-color: #E53E3E; }
 .form-group textarea { resize: vertical; min-height: 80px; }
 
+/* Half-bath sub-option inside bathrooms field */
+.half-bath-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.half-bath-label {
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.half-bath-select {
+  width: auto !important;
+  padding: 4px 8px !important;
+  font-size: .8rem !important;
+  border: 1px solid var(--gray-200) !important;
+  border-radius: 6px !important;
+  background: var(--gray-50) !important;
+  color: var(--black);
+  flex: 1;
+  min-width: 0;
+}
+.half-bath-select:focus {
+  border-color: var(--green) !important;
+  outline: none;
+}
+
 .step-actions {
   padding: 16px 28px 24px;
   display: flex;

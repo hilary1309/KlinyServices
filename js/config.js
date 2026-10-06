@@ -28,18 +28,18 @@ const CONFIG = {
 
   pricing: {
     base: {
-      bachelor: 155,
-      "1bed":   170,
-      "2bed":  260,
+      bachelor: 120,
+      "1bed":   150,
+      "2bed":  250,
       "3bed":  350,
     },
     extraBathroom: 35,
     extraHalfBath: 15,
     cleanTypeUpgrade: {
       standard:   0,
-      deep:      115,
-      moveinout: 150,
-      party:     130,
+      deep:      120,
+      moveinout: 130,
+      party:     125,
       airbnb:    120,
       postreno:  220,
     },

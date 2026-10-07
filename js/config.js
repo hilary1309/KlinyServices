@@ -28,26 +28,26 @@ const CONFIG = {
 
   pricing: {
     base: {
-      bachelor: 120,
-      "1bed":   150,
-      "2bed":  250,
-      "3bed":  350,
+      bachelor: 70,
+      "1bed":   80,
+      "2bed":  90,
+      "3bed":  100,
     },
-    extraBathroom: 35,
+    extraBathroom: 25,
     extraHalfBath: 15,
     cleanTypeUpgrade: {
       standard:   0,
-      deep:      120,
-      moveinout: 130,
-      party:     125,
-      airbnb:    120,
-      postreno:  220,
+      deep:      75,
+      moveinout: 80,
+      party:     70,
+      airbnb:    70,
+      postreno:  100,
     },
     // Simple fixed-price add-ons
     addons: {
-      oven:    35,
-      fridge:  30,
-      windows: 30,
+      oven:    25,
+      fridge:  20,
+      windows: 20,
     },
   },
 
@@ -57,7 +57,7 @@ const CONFIG = {
       id: "oven",
       emoji: "🔥",
       label: "Oven Cleaning",
-      priceEach: 35,
+      priceEach: 30,
       unit: "oven",
       unitPlural: "ovens",
       max: 4,
@@ -67,7 +67,7 @@ const CONFIG = {
       id: "fridge",
       emoji: "❄️",
       label: "Fridge Cleaning",
-      priceEach: 30,
+      priceEach: 20,
       unit: "fridge",
       unitPlural: "fridges",
       max: 4,
@@ -92,8 +92,8 @@ const CONFIG = {
       emoji: "🖌️",
       label: "Wall Cleaning",
       tiers: [
-        { id: "walls_spots",    label: "Spot cleaning",          price: 25,  desc: "Small marks/spots in several areas" },
-        { id: "walls_1room",    label: "1 room",                 price: 40,  desc: "Wiping/washing accessible walls in one room" },
+        { id: "walls_spots",    label: "Spot cleaning",          price: 20,  desc: "Small marks/spots in several areas" },
+        { id: "walls_1room",    label: "1 room",                 price: 30,  desc: "Wiping/washing accessible walls in one room" },
         { id: "walls_multi",    label: "Multiple rooms",         price: null, perExtra: 30, desc: "$30 per room — ask for exact count at booking" },
       ],
     },
@@ -102,8 +102,8 @@ const CONFIG = {
       emoji: "🍽️",
       label: "Dishes",
       tiers: [
-        { id: "dishes_one",     label: "One sink load",          price: 25,  desc: "One sink/load of ordinary dishes" },
-        { id: "dishes_large",   label: "Large amount",           price: 35,  desc: "Multiple loads or significant buildup" },
+        { id: "dishes_one",     label: "One sink load",          price: 20,  desc: "One sink/load of ordinary dishes" },
+        { id: "dishes_large",   label: "Large amount",           price: 30,  desc: "Multiple loads or significant buildup" },
       ],
     },
     {
@@ -111,8 +111,8 @@ const CONFIG = {
       emoji: "🧺",
       label: "Laundry",
       tiers: [
-        { id: "laundry_1",      label: "1 load",                 price: 30,  desc: "1 standard load washed and folded (client provides detergent)" },
-        { id: "laundry_2",      label: "2 loads",                price: 50,  desc: "2 loads washed and folded" },
+        { id: "laundry_1",      label: "1 load",                 price: 20,  desc: "1 standard load washed and folded (client provides detergent)" },
+        { id: "laundry_2",      label: "2 loads",                price: 30,  desc: "2 loads washed and folded" },
         { id: "laundry_3plus",  label: "3+ loads",               price: null, desc: "Contact us for a custom quote on 3 or more loads" },
       ],
     },
@@ -121,7 +121,7 @@ const CONFIG = {
       emoji: "🏚️",
       label: "Garage",
       tiers: [
-        { id: "garage_light",   label: "Light cleaning",         price: 90,  desc: "Sweep/vacuum + basic surface cleaning" },
+        { id: "garage_light",   label: "Light cleaning",         price: 50,  desc: "Sweep/vacuum + basic surface cleaning" },
         { id: "garage_heavy",   label: "Heavy cleaning",         price: null, desc: "Significant dirt, debris, or clutter — custom quote" },
       ],
     },
@@ -130,7 +130,7 @@ const CONFIG = {
       emoji: "🪜",
       label: "Basement",
       tiers: [
-        { id: "basement_light", label: "Light cleaning",         price: 90,  desc: "Vacuum/sweep + basic surface cleaning" },
+        { id: "basement_light", label: "Light cleaning",         price: 50,  desc: "Vacuum/sweep + basic surface cleaning" },
         { id: "basement_heavy", label: "Larger / heavier",       price: null, range: "$75–$125+", desc: "Depending on size and condition — custom quote" },
       ],
     },
@@ -201,8 +201,8 @@ const CONFIG = {
   // Frequency options
   frequency: [
     { id: "onetime",  label: "One-time",                       discountPct: 0  },
-    { id: "weekly",   label: "Weekly (7% discount applied)",   discountPct: 7  },
-    { id: "biweekly", label: "Bi-weekly (5% discount applied)", discountPct: 5 },
+    { id: "weekly",   label: "Weekly (5% discount applied)",   discountPct: 5  },
+    { id: "biweekly", label: "Bi-weekly (3% discount applied)", discountPct: 3 },
     { id: "monthly",  label: "Monthly",                        discountPct: 0  },
   ],
 
